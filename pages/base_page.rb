@@ -23,14 +23,14 @@ class BasePage
 		find('form[data-hh-tab-id=employersList]>div>div>button').click
 	end
 
-	# метод получает текст который надо найти на странице 
-	# в случае многостранично поисковой выдачи - ищет на всех страницах
+	# метод получает текст, который надо найти на странице 
+	# в случае многостраничной поисковой выдачи - ищет на всех страницах
 	def has_result? (result)
 		if has_text?(result)
 			return true
 		# проверка на многостраничность
 		elsif has_css?('ul>li[data-qa]>a')
-			# подсчёт количества переходов
+			# подсчёт количества страниц
 			n = all('ul>li[data-qa]>a').size
 			
 			(0...n).each do |n| 
