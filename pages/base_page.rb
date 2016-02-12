@@ -5,7 +5,7 @@ class BasePage
 	include Capybara::DSL
 
 	def initialize
-		Capybara.run_server = false #отключаем автоматичкую загрузку Rack-сервера
+		Capybara.run_server = false #отключаем автоматическую загрузку Rack-сервера
 		Capybara.current_driver = Options.driver
 		Capybara.app_host = Options.base_url
 		Capybara.default_max_wait_time = Options.wait_time
